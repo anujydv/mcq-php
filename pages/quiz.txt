@@ -1,10 +1,7 @@
 <div class="right_col" role="main">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>Quiz</h2>
-                        <div class="col-sm-offset-10">
-                        <p class="timer">Time Left :- <span class="countdown"><?php echo $row2['quiz_time']; ?></span>&nbsp;min</p>
-                        </div>
+                        <h2>Quiz</h2>                    
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
@@ -17,7 +14,7 @@
                             $query1 = "select * from bnoises where q_id=".$ques[$i];
                             $result1 = mysqli_query($conn,$query1);
                             $row1 = mysqli_fetch_assoc($result1);
-                                    echo "<h2>".$row1['q_que']."</h2>\n";
+                                    echo "<h2>".($i+1)." . ".$row1['q_que']."</h2>\n";
                                     echo "<div class='radio'>\n";
                                     echo "<label>\n";
                                         echo "<input type='radio'  value='1' name='q_".$row1['q_id']."'>&nbsp;&nbsp;".$row1['ans_a']."";
@@ -47,6 +44,7 @@
                                     echo "</div>\n";
                                     echo "</div>\n";
                                     }
+                                    
                                     echo "<br>";
                     $i+=1;
                 }
