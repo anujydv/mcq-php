@@ -20,6 +20,7 @@ session_start();
     <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!-- Custom Theme Style -->
     <link href="build/css/custom.min.css" rel="stylesheet">
+    <script src="js/jquery-3.3.1.min.js"></script>    
     <script src="js/admin.js"></script>
     <script>
 

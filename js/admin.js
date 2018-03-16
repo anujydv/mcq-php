@@ -41,19 +41,41 @@ function showResult(qes) {
     xmlhttp.open("GET", "db/showresult.php?q=" + qes, true);
     xmlhttp.send();
 }
-var min = parseInt(document.querySelector('.countdown').innerText);
-var sec = 60;
+// var min = parseInt(document.querySelector('.countdown').innerText);
+// var sec = 60;
 
-function countDown() {
-    while (min >= 0) {
-        min--;
-        while (sec >= 0) {
-            sec--;
-            document.querySelector('.countdown').innerText = min + ":" + sec;
-            setTimeout(function () {}, 1000);
-        }
-        sec = 60;
-    }
+// function countDown() {
+//     while (min >= 0) {
+//         min--;
+//         while (sec >= 0) {
+//             sec--;
+//             document.querySelector('.countdown').innerText = min + ":" + sec;
+//             setTimeout(function () {}, 1000);
+//         }
+//         sec = 60;
+//     }
 
-}
-countDown();
+// }
+// countDown();
+$(document).ready(function () {
+    //Disable full page
+    $("body").on("contextmenu", function (e) {
+        return false;
+    });
+
+    //Disable part of page
+    $("#id").on("contextmenu", function (e) {
+        return false;
+    });
+});
+$(document).ready(function () {
+    //Disable full page
+    $('body').bind('cut copy paste', function (e) {
+        e.preventDefault();
+    });
+
+    //Disable part of page
+    $('#id').bind('cut copy paste', function (e) {
+        e.preventDefault();
+    });
+});
