@@ -36,7 +36,7 @@ function getAns($num){
                       echo "<thead>";
                         echo "<tr>";
                           echo "<th>Question</th>";
-                          echo "<th>Your Answer</th>";
+                        //   echo "<th>Your Answer</th>";
                           echo "<th>Correct Answer</th>";
                         echo "</tr>";
                       echo "</thead>";
@@ -46,7 +46,7 @@ function getAns($num){
                         $result = mysqli_query($conn,$query);
                         $row  =  mysqli_fetch_assoc($result);
                         echo '<td>'.($i+1).' . '.$row['q_que'].'</td>';
-                        echo '<td>'.$row[getAns((int)$ans[$i])].'</td>';
+                        // echo '<td>'.$row[getAns((int)$ans[$i])].'</td>';
                         echo '<td>'.$row[getAns((int)$row['correct_ans'])].'</td>';
                         echo '</tr>';
                         $i+=1;

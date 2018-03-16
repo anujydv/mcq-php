@@ -12,7 +12,7 @@
         if(isset($row['id'])){
             $_SESSION['flag'] = 1;
             $_SESSION['unique_user_id'] = $row['unique_user_id'];
-            $_SESSION['status'] = 1;
+            $_SESSION['status'] = 0;
             header("Location:../admin.php");
             exit;
         }
@@ -24,7 +24,7 @@
         $row1 = mysqli_fetch_assoc($result1);
         if(isset($row1['quiz_s_id'])){
             // echo "fuck of";
-            // $_SESSION['status'] = 1;
+            $_SESSION['status'] = 0;
             $_SESSION['unique_user_id'] = $row1['unique_user_id'];
             $_SESSION['quiz_s_id'] = $row1['quiz_s_id'];
             $_SESSION['flag'] = 1;
