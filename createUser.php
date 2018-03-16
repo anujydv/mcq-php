@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once("db/addfile.php");
 ?>
 <!DOCTYPE html>
@@ -43,7 +44,7 @@ require_once("db/addfile.php");
                     <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
                         <div class="menu_section">
                             <h3>General</h3>
-                             <ul class="nav side-menu">
+                            <ul class="nav side-menu">
                 <li>
                   <a>
                     <i class="fa fa-home"></i> Quiz Section
@@ -54,7 +55,7 @@ require_once("db/addfile.php");
                       <a href="addquestion.php">Add Question</a>
                     </li>
                     <li>
-                      <a href="addevent.php">Event addition</a>
+                      <a href="addevent.php">Event Addition</a>
                     </li>
                     <li>
                       <a href="createUser.php">Create User</a>
@@ -108,16 +109,34 @@ require_once("db/addfile.php");
             <div class="right_col" role="main">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>Result Sheet</h2>
+                        <h2>Add Question</h2>
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
+                        <?php
+            if(isset($_SESSION['addques'])){
+                if($_SESSION['addques'] == 1){
+             echo "<div class='alert alert-success alert-dismissible fade in' role='alert'>
+                    <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>×</span>
+                    </button>
+                    Add Success Fully
+                  </div>";
+                }
+                else{
+                echo "<div class='alert alert-danger alert-dismissible fade in' role='alert'>
+                    <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>×</span>
+                    </button>
+                    Some Error occurred !
+                  </div>";
+            }
+            }
+            ?>
                         <br />
-                        <form action="db/getResult.php"  target="_blank" method="get" data-parsley-validate class="form-horizontal form-label-left">
+                        <form action="db/adduser.php" target="_self" method="post" data-parsley-validate class="form-horizontal form-label-left">
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Select Event</label>
-                                <div class="col-md-3 col-sm-3 col-xs-12">
-                                    <select class="form-control Resultevents" name="Resultevents">
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <select class="form-control events" name="events">
                                         <option selected>Select Event</option>
                                         <?php while($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
                                             echo "<option value='".$row['id']."'>".$row['name']."</option>";
@@ -125,19 +144,24 @@ require_once("db/addfile.php");
                                         ?>
                                     </select>
                                 </div>
+                            </div>
+                            <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="write-question">Event Round</label>
-                                <div class="col-md-3 col-sm-3 col-xs-12">
-                                    <input id="round" name="round" required="required" class="form-control col-md-7 col-xs-12">
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="number" min="1" max="3" size="1" id="round" name="round" required="required" class="form-control col-md-7 col-xs-12">
                                 </div>
                             </div>
                             <div class="form-group">
-                                
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="write-question">Unique User ID</label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="u_ur_id" name="u_ur_id" required="required" class="form-control col-md-7 col-xs-12">
+                                </div>
                             </div>
                             <div class="ln_solid"></div>
                             <div class="form-group">
-                                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-5">
-                                    <!-- <button class="btn btn-primary" type="reset">Reset</button> -->
-                                    <button type="submit" class="btn btn-success Resultbutton">Submit</button>
+                                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                    <button class="btn btn-primary" type="reset">Reset</button>
+                                    <button type="submit" class="btn btn-success">Submit</button>
                                 </div>
                             </div>
 

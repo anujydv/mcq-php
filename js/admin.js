@@ -1,13 +1,13 @@
-var option = document.querySelector(".events");
-option.addEventListener('change', function () {
-    console.log(option.value);
-    if (option.value == 3) {
-        document.querySelector(".hint").innerHTML = "<label class='control-label col-md-3 col-sm-3 col-xs-12' for='hint'>Hint</label><div class='col-md-6 col-sm-6 col-xs-12'><textarea id='hint' required='required' class='form-control col-md-7 col-xs-12' type='text' name='hint'></textarea></div>";
-        console.log("done");
-    } else {
-        document.querySelector(".hint").innerHTML = "";
-    }
-});
+// var option = document.querySelector(".events");
+// option.addEventListener('change', function () {
+//     console.log(option.value);
+//     if (option.value == 3) {
+//         document.querySelector(".hint").innerHTML = "<label class='control-label col-md-3 col-sm-3 col-xs-12' for='hint'>Hint</label><div class='col-md-6 col-sm-6 col-xs-12'><textarea id='hint' required='required' class='form-control col-md-7 col-xs-12' type='text' name='hint'></textarea></div>";
+//         console.log("done");
+//     } else {
+//         document.querySelector(".hint").innerHTML = "";
+//     }
+// });
 
 function gethint(qes) {
     if (window.XMLHttpRequest) {

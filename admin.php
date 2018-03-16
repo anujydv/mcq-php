@@ -52,6 +52,9 @@
                     <li>
                       <a href="addevent.php">Event Addition</a>
                     </li>
+                    <li>
+                      <a href="createUser.php">Create User</a>
+                    </li>
                   </ul>
                 </li>
                 <li>

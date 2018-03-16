@@ -30,7 +30,7 @@ $round = $_GET["round"];
 $query1 = "select * from events where id=".$event."";
 $result1 = mysqli_query($conn,$query1);
 $row1 = mysqli_fetch_array($result1);
-$query = "select * from bnoisesResult where quiz_event=".$event." and quiz_round=".$round."";
+$query = "select * from bnoisesResult where quiz_event=".$event." and quiz_round=".$round." and que_ans_seq is not NULL";
 $result = mysqli_query($conn,$query);
 if($result->{'num_rows'}>0){
 echo "<table><thead><tr><th>Sr No.</th><th>Participant Name</th><th>User ID</th><th>Mobile</th><th>Event</th><th>Marks Score</th></tr></thead>";
