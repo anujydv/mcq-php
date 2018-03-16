@@ -30,10 +30,9 @@ while($i<$length){
     $i+=1;
 }
 
-$query2 = "update bnoisesResult set que_ans_seq='".$str."' ,result=".$score." where quiz_s_id=".$_SESSION['quiz_s_id']."";
+$query2 = "update bnoisesResult set que_ans_seq='".$str."' ,result=".$score.",quiz_status=1 where quiz_s_id=".$_SESSION['quiz_s_id']."";
 echo $query2;
 if(mysqli_query($conn,$query2)){
-        $_SESSION['quiz_status'] = 1;
         header("Location:../quiz.php");
 }
 ?>

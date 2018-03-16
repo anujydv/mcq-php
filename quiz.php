@@ -79,7 +79,7 @@ require_once("db/questiondisplay.php");
 
                     <!-- /menu footer buttons -->
                     <div class="sidebar-footer hidden-small">
-                        <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+                        <a data-toggle="tooltip" data-placement="top" title="Logout" href="logout.php">
                             <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
                         </a>
                     </div>
@@ -102,13 +102,15 @@ require_once("db/questiondisplay.php");
             <!-- /top navigation -->
 
             <!-- page content -->
-            <?php
-            if(isset($_SESSION['quiz_status'])){
-                echo "<div class='alert alert-danger alert-dismissible fade in' role='alert'>
+            <?php            
+            if(isset($_SESSION['quiz_status']) && $_SESSION['quiz_status']==1){
+                echo "<div class='right_col' role='main'>";
+                echo "<div class='alert alert-danger alert-dismissible fade in' role='alert' style='margin-top:50px;'>
                     <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>×</span>
                     </button>
-                    already submited;
+                    Submited
                   </div>";
+                  echo "</div>";
             }
             else{
                 include_once("pages/quiz.txt");                
