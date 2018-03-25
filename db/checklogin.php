@@ -5,7 +5,7 @@
     $user = $_POST['username'];
     $pass = $_POST['pass'];
     if(isset($user) & isset($pass)){
-        $qury = "select id from user where username='".$user."' and password_hash='".$pass."' and status=1";
+        $qury = "select id from user where username='".$user."' and password_hash='".$pass."' and status=2";
         $result = mysqli_query($conn,$qury);
         $row = mysqli_fetch_assoc($result);
         if($row){
